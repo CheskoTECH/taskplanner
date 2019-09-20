@@ -29,7 +29,7 @@ export default new Router({
     {
       path: '/resources',
       name: 'resources',
-      component: () => import('./views/About.vue')
+      component: () => import('./views/Resources.vue')
     },
     {
       path: '/createtask',
