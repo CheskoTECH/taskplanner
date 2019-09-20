@@ -1,5 +1,5 @@
-.<template>
-  <p>About</p>
+<template>
+  <p>Create Task</p>
 </template>
 
 <script>

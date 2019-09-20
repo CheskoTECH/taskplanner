@@ -1,5 +1,5 @@
 .<template>
-  <p>About</p>
+  <p>Resources</p>
 </template>
 
 <script>
