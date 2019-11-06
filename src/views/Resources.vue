@@ -3,11 +3,11 @@
     <div class="main__firstRow">
       <div class="main__firstRow--firstCol common">
         <div class="main__firstRow--firstCol-wrapper">
-          <v-gauge :value="processorFuncWave()" unit="%"></v-gauge>
+          <v-gauge :value="processor" unit="%">{{processorFuncWave}}</v-gauge>
           <p class="main__firstRow--firstCol-wrapper-p">ЦП</p>
         </div>
         <div class="main__firstRow--firstCol-wrapper">
-          <v-gauge :value="memory" unit="%"></v-gauge>
+          <v-gauge :value="memory" unit="%">{{ memoryFuncWave }}</v-gauge>
           <p class="main__firstRow--firstCol-wrapper-p">Память</p>
         </div>
       </div>
@@ -23,6 +23,9 @@
       </div>
     </div>
     <div class="main__secondRow common">
+      <p>Параметры системы</p>
+      <p class="main__secondRow--ttx">RAM: 228Гб</p>
+      <p class="main__secondRow--ttx">CP: Intel Core i5</p>
     </div>
   </div>
 </template>
@@ -56,6 +59,35 @@ export default {
     // setInterval(() => {
     //   if (this.memory < 100) this.memory += 5;
     // }, 100)
+  },
+  computed: {
+    processorFuncWave() {
+      if (this.processor < 70) {
+          setTimeout(() => {
+            this.processor += 2;
+          }, 700);
+      }
+
+      if (this.processor >= 70) {
+        setTimeout(() => {
+          this.processor -= 3;
+        }, 700);
+      }
+      return this.processor;
+    },
+    memoryFuncWave() {
+      if (this.memory < 30) {
+          setTimeout(() => {
+            this.memory += 1;
+          }, 500);
+      }
+      if (this.memory >= 30) {
+        setTimeout(() => {
+          this.memory -= 4;
+        }, 500);
+      }
+      return this.memory;
+    }
   },
   methods: {
     processorFunc() {
@@ -91,12 +123,12 @@ export default {
     memoryFuncWave() {
       if (this.memory < 30) {
           setTimeout(() => {
-            this.memory += 2;
+            this.memory += 1;
           }, 500);
       }
       if (this.memory >= 30) {
         setTimeout(() => {
-          this.memory -= 3;
+          this.memory -= 4;
         }, 500);
       }
       return this.memory;
@@ -174,6 +206,13 @@ export default {
 
   &__secondRow {
     background-color: #fff;
+    display: flex;
+    padding-left: 5rem;
+    padding-top: 4rem;
+
+    &--ttx {
+      margin-left: 5rem;
+    }
   }
 }
 

@@ -6,9 +6,9 @@
         <li class="navbar__item">
           <router-link to="resources" class="navbar__link">Ресурсы</router-link>
         </li>
-        <li class="navbar__item">
+        <!-- <li class="navbar__item">
           <router-link to="createtask" class="navbar__link">Создать задачу</router-link>
-        </li>
+        </li> -->
         <li class="navbar__item">
           <router-link to="tasks" class="navbar__link">Задачи</router-link>
         </li>
