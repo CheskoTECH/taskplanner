@@ -9,14 +9,6 @@
           
         </div>
       </div>
-      <!-- <div class="main__firstRow--secondCol">
-        <div class="main__firstRow--secondCol-topBlock common">
-
-        </div>
-        <div class="main__firstRow--secondCol-botBlock common">
-
-        </div>
-      </div> -->
     </div>
     <div class="main__secondRow common">
       
@@ -29,7 +21,6 @@ import VGauge from "vgauge";
 
 export default {
   components: {
-    VGauge
   },
   data() {
     return {
@@ -43,9 +34,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.gauge-title {
-  display: none;
-}
+
 .main {
   height: 100%;
   display: grid;
@@ -77,36 +66,36 @@ export default {
 
     }
 
-    &--secondCol {
-      display: grid;
-      grid-template-rows: 1fr 1fr;
-      grid-gap: 3rem;
+    // &--secondCol {
+    //   display: grid;
+    //   grid-template-rows: 1fr 1fr;
+    //   grid-gap: 3rem;
 
-      &-topBlock {
-        background-color: #fff;
-        display: grid;
-        align-content: center;
-        justify-content: center;
-        text-align: center;
+    //   &-topBlock {
+    //     background-color: #fff;
+    //     display: grid;
+    //     align-content: center;
+    //     justify-content: center;
+    //     text-align: center;
 
-        &-data {
-          font-size: 3.5rem;
-          color: rgb(24, 175, 18);
-        }
-      }
-      &-botBlock {
-        background-color: #fff;
-        display: grid;
-        align-content: center;
-        justify-content: center;
-        text-align: center;
+    //     &-data {
+    //       font-size: 3.5rem;
+    //       color: rgb(24, 175, 18);
+    //     }
+    //   }
+    //   &-botBlock {
+    //     background-color: #fff;
+    //     display: grid;
+    //     align-content: center;
+    //     justify-content: center;
+    //     text-align: center;
 
-        &-data {
-          font-size: 3.5rem;
-          color: rgb(24, 175, 18);
-        }
-      }
-    }
+    //     &-data {
+    //       font-size: 3.5rem;
+    //       color: rgb(24, 175, 18);
+    //     }
+    //   }
+    // }
   }
 
   &__secondRow {

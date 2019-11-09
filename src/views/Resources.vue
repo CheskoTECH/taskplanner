@@ -24,7 +24,7 @@
     </div>
     <div class="main__secondRow common">
       <p>Параметры системы</p>
-      <p class="main__secondRow--ttx">RAM: 228Гб</p>
+      <p class="main__secondRow--ttx">RAM: 8Гб</p>
       <p class="main__secondRow--ttx">CP: Intel Core i5</p>
     </div>
   </div>
