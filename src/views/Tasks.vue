@@ -1,35 +1,59 @@
 <template>
   <div class="main">
-    <div class="main__firstRow">
-      <div class="main__firstRow--mainLine common">
-        <div class="main__firstRow--mainLine-wrapper">
-          
-        </div>
-        <div class="main__firstRow--mainLine-wrapper">
-          
-        </div>
+    <div class="main__firstRow common">
+      <div class="main__firstRow--tasks">
+        <p v-for="(task, index) in tasks" :key="index">
+          {{ task.name }}
+          {{ task.id }}
+        </p>
       </div>
     </div>
     <div class="main__secondRow common">
-      
+      <div class="main__secondRow--form">
+        <input v-model="taskName" placeholder="Название таска">
+        <input v-model="expirationTime" placeholder="Время жизни">
+        <input type="number" v-model="taskId" placeholder="ID">
+        <p>{{ taskName }}</p>
+        <button @click="addTask()">Добавить</button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import VGauge from "vgauge";
 
 export default {
   components: {
   },
   data() {
     return {
-      // processor: 70,
-      // memory: 30,
-      // streams: 2145,
-      // processes: 218
+      taskName: "",
+      expirationTime: "",
+      taskId: "",
+      tasks: [
+      ]
     };
   },
+  methods: {
+    addTask() {
+      // console.log(this.tasks.name);
+      // console.log(this.taskName);
+      // this.tasks.push({
+      //   name: this.taskName,
+      //   id: this.taskId
+      // });
+      const taskData = {
+        name: this.taskName,
+        id: this.taskId,
+        expTime: this.expirationTime
+      }
+
+      this.$store.dispatch('addNewTask', taskData);
+    }
+  },
+  created() {
+    this.tasks = this.$store.getters.getAllTasks;
+  }
 };
 </script>
 
@@ -46,67 +70,20 @@ export default {
   font-size: 1.5rem;
 
   &__firstRow {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 3rem;
+    // display: grid;
+    // grid-template-columns: 1fr;
 
-    &--mainLine {
-      background-color: #fff;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      justify-items: center;
+    // grid-gap: 3rem;
+    background-color: #fff;
 
-      &-wrapper {
-        text-align: center;
-        &-p {
-          margin-top: 2rem;
-        }
-      }
-
-    }
-
-    // &--secondCol {
-    //   display: grid;
-    //   grid-template-rows: 1fr 1fr;
-    //   grid-gap: 3rem;
-
-    //   &-topBlock {
-    //     background-color: #fff;
-    //     display: grid;
-    //     align-content: center;
-    //     justify-content: center;
-    //     text-align: center;
-
-    //     &-data {
-    //       font-size: 3.5rem;
-    //       color: rgb(24, 175, 18);
-    //     }
-    //   }
-    //   &-botBlock {
-    //     background-color: #fff;
-    //     display: grid;
-    //     align-content: center;
-    //     justify-content: center;
-    //     text-align: center;
-
-    //     &-data {
-    //       font-size: 3.5rem;
-    //       color: rgb(24, 175, 18);
-    //     }
-    //   }
-    // }
   }
 
   &__secondRow {
     background-color: #fff;
-    display: flex;
-    padding-left: 5rem;
-    padding-top: 4rem;
+    // display: flex;
+    // padding-left: 5rem;
+    // padding-top: 4rem;
 
-    &--ttx {
-      margin-left: 5rem;
-    }
   }
 }
 
